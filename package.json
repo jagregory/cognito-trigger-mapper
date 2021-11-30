@@ -1,0 +1,57 @@
+{
+  "name": "cognito-trigger-mapper",
+  "description": "Scenarios and CDK stack to map out which triggers are fired when by Amazon Cognito",
+  "version": "1.0.0",
+  "license": "MIT",
+  "bin": {
+    "app": "./bin/stack.ts"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.113",
+    "@types/aws-lambda": "^8.10.85",
+    "@types/node": "^16.11.10",
+    "@types/yargs": "^17.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "aws-cdk": "1.134.0",
+    "esbuild": "^0.14.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cognito": "1.134.0",
+    "@aws-cdk/aws-dynamodb": "1.134.0",
+    "@aws-cdk/aws-lambda": "1.134.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.134.0",
+    "@aws-cdk/cloud-assembly-schema": "1.134.0",
+    "@aws-cdk/core": "1.134.0",
+    "@aws-cdk/cx-api": "1.134.0",
+    "@aws-cdk/region-info": "1.134.0",
+    "aws-sdk": "^2.1038.0",
+    "constructs": "3.3.161",
+    "yargs": "^17.2.1"
+  },
+  "scripts": {
+    "deploy": "cdk deploy --app 'bin/stack.ts'",
+    "deploy:bootstrap": "cdk bootstrap --app 'bin/stack.ts'",
+    "format": "prettier --write '**/*.json' '**/*.ts' '**/*.md'",
+    "lint": "scripts/lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,md}": "prettier --write",
+    "*.ts": [
+      "prettier --write",
+      "scripts/lint"
+    ]
+  }
+}

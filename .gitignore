@@ -1,0 +1,15 @@
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Parcel default cache directory
+.parcel-cache
+.build
+
+# Webstorm
+.idea
+
+# node
+node_modules
+.eslintcache
+.DS_Store

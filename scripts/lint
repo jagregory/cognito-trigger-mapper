@@ -1,0 +1,9 @@
+#!/bin/bash
+
+eslint . --fix --cache --ext .ts
+eslint_exit=$?
+
+tsc --project tsconfig.json --noEmit --skipLibCheck
+tsc_exit=$?
+
+exit $((eslint_exit + tsc_exit))
